@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Bug缔造者</title>
+  
+  <subtitle>你的压力来源于，你无法自律，只是假装努力，现状跟不上内心的欲望，所以你焦虑又恐慌。</subtitle>
+  <link href="https://blog.entropy2020.cn/atom.xml" rel="self"/>
+  
+  <link href="https://blog.entropy2020.cn/"/>
+  <updated>2022-11-12T09:15:06.631Z</updated>
+  <id>https://blog.entropy2020.cn/</id>
+  
+  <author>
+    <name>Vast Gui</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>计算机系统中的数据表示</title>
+    <link href="https://blog.entropy2020.cn/2022/11/12/co-data-representation/"/>
+    <id>https://blog.entropy2020.cn/2022/11/12/co-data-representation/</id>
+    <published>2022-11-12T08:12:08.000Z</published>
+    <updated>2022-11-12T09:15:06.631Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="浮点数"><a href="#浮点数" class="headerlink" title="浮点数"></a>浮点数</h2><h3 id="IEEE754"><a href="#IEEE754" class="headerlink" title="IEEE754"></a>IEEE754</h3><h4 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h4><p>根据<strong>IEEE754</strong>对于浮点数的定义，单精度浮点数的真值一般表示为：</p><p>$$N&#x3D;(-1)^s*2^{e-127}*1.f$$</p><p>其中数字符 $s$ 为1位， 阶码编码 $e$ 为8位（含1位阶符），尾数编码 $f$ 为23位。</p><h4 id="浮点数的加减运算"><a href="#浮点数的加减运算" class="headerlink" title="浮点数的加减运算"></a>浮点数的加减运算</h4><p>一般有下列五步</p><div class="mermaid-wrap"><pre class="mermaid-src" hidden>  graph LRA[对阶]--&gt;B[尾数加减]--&gt;C[规格化]--&gt;D[舍入]--&gt;E[判溢出]  </pre></div>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;浮点数&quot;&gt;&lt;a href=&quot;#浮点数&quot; class=&quot;headerlink&quot; title=&quot;浮点数&quot;&gt;&lt;/a&gt;浮点数&lt;/h2&gt;&lt;h3 id=&quot;IEEE754&quot;&gt;&lt;a href=&quot;#IEEE754&quot; class=&quot;headerlink&quot; title=&quot;IEEE754</summary>
+      
+    
+    
+    
+    
+    <category term="计算机组成原理" scheme="https://blog.entropy2020.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>绪论</title>
+    <link href="https://blog.entropy2020.cn/2022/11/12/co-overview/"/>
+    <id>https://blog.entropy2020.cn/2022/11/12/co-overview/</id>
+    <published>2022-11-12T07:54:10.000Z</published>
+    <updated>2022-11-12T09:15:02.764Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="计算机分类及性能描述"><a href="#计算机分类及性能描述" class="headerlink" title="计算机分类及性能描述"></a>计算机分类及性能描述</h2><h3 id="Amdahl定律"><a href="#Amdahl定律" class="headerlink" title="Amdahl定律"></a>Amdahl定律</h3><p>$$加速比&#x3D;\frac{改进后的系统性能}{改进前的系统性能}&#x3D;\frac{改进前的系统总执行时间}{改进后的系统总只执行时间}$$</p><p>可改进比例用 $f_e$ 表示，例如总执行时间为100s，可以优化的时间为20s，则 $f_e$ 的值为0.2。</p><p>可改进部分改进后性能提高程度用 $r_e$ 表示，例如执行时间由20s缩短到5s，则 $r_e$ 的值为4。</p><p>通过上述分析，改进前执行时间为 $T_0$ ，改进后执行时间为 $T_n$ ，则有关系</p><p>$$T_n&#x3D;T_0(1-f_e+\frac{f_e}{r_e})$$</p><p>由此可得</p><p>$$S_p&#x3D;\frac{1}{1-f_e+\frac{f_e}{r_e}}$$</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;计算机分类及性能描述&quot;&gt;&lt;a href=&quot;#计算机分类及性能描述&quot; class=&quot;headerlink&quot; title=&quot;计算机分类及性能描述&quot;&gt;&lt;/a&gt;计算机分类及性能描述&lt;/h2&gt;&lt;h3 id=&quot;Amdahl定律&quot;&gt;&lt;a href=&quot;#Amdahl定律&quot; cla</summary>
+      
+    
+    
+    
+    
+    <category term="计算机组成原理" scheme="https://blog.entropy2020.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/"/>
+    
+  </entry>
+  
+</feed>
