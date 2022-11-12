@@ -3,11 +3,11 @@
   <title>Bug缔造者</title>
   
   <subtitle>你的压力来源于，你无法自律，只是假装努力，现状跟不上内心的欲望，所以你焦虑又恐慌。</subtitle>
-  <link href="https://blog.entropy2020.cn/atom.xml" rel="self"/>
+  <link href="https://www.entropy2020.cn/atom.xml" rel="self"/>
   
-  <link href="https://blog.entropy2020.cn/"/>
+  <link href="https://www.entropy2020.cn/"/>
   <updated>2022-11-12T09:15:06.631Z</updated>
-  <id>https://blog.entropy2020.cn/</id>
+  <id>https://www.entropy2020.cn/</id>
   
   <author>
     <name>Vast Gui</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>计算机系统中的数据表示</title>
-    <link href="https://blog.entropy2020.cn/2022/11/12/co-data-representation/"/>
-    <id>https://blog.entropy2020.cn/2022/11/12/co-data-representation/</id>
+    <link href="https://www.entropy2020.cn/2022/11/12/co-data-representation/"/>
+    <id>https://www.entropy2020.cn/2022/11/12/co-data-representation/</id>
     <published>2022-11-12T08:12:08.000Z</published>
     <updated>2022-11-12T09:15:06.631Z</updated>
     
@@ -34,14 +34,14 @@
     
     
     
-    <category term="计算机组成原理" scheme="https://blog.entropy2020.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/"/>
+    <category term="计算机组成原理" scheme="https://www.entropy2020.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/"/>
     
   </entry>
   
   <entry>
     <title>绪论</title>
-    <link href="https://blog.entropy2020.cn/2022/11/12/co-overview/"/>
-    <id>https://blog.entropy2020.cn/2022/11/12/co-overview/</id>
+    <link href="https://www.entropy2020.cn/2022/11/12/co-overview/"/>
+    <id>https://www.entropy2020.cn/2022/11/12/co-overview/</id>
     <published>2022-11-12T07:54:10.000Z</published>
     <updated>2022-11-12T09:15:02.764Z</updated>
     
@@ -56,7 +56,7 @@
     
     
     
-    <category term="计算机组成原理" scheme="https://blog.entropy2020.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/"/>
+    <category term="计算机组成原理" scheme="https://www.entropy2020.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/"/>
     
   </entry>
   
