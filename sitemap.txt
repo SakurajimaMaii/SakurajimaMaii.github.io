@@ -1,5 +1,10 @@
-https://www.entropy2020.cn/2022/11/12/co-data-representation/
-https://www.entropy2020.cn/2022/11/12/co-overview/
-https://www.entropy2020.cn/2022/11/12/co-instruction-system/
+https://www.entropy2020.cn/tags/index.html
+https://www.entropy2020.cn/categories/index.html
+https://www.entropy2020.cn/2022/11/13/diary/diary_2022_11_13/
+https://www.entropy2020.cn/2022/11/12/computer_organization/co-data-representation/
+https://www.entropy2020.cn/2022/11/13/computer_organization/co-external-storage/
+https://www.entropy2020.cn/2022/11/12/computer_organization/co-overview/
+https://www.entropy2020.cn/2022/11/12/computer_organization/co-instruction-system/
 https://www.entropy2020.cn/
 https://www.entropy2020.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/
+https://www.entropy2020.cn/tags/%E6%97%A5%E8%AE%B0/
