@@ -3,11 +3,11 @@
   <title>Bug缔造者</title>
   
   <subtitle>你的压力来源于，你无法自律，只是假装努力，现状跟不上内心的欲望，所以你焦虑又恐慌。</subtitle>
-  <link href="https://blog.entropy2020.cn/atom.xml" rel="self"/>
+  <link href="https://www.entropy2020.cn/atom.xml" rel="self"/>
   
-  <link href="https://blog.entropy2020.cn/"/>
-  <updated>2022-11-13T05:39:59.943Z</updated>
-  <id>https://blog.entropy2020.cn/</id>
+  <link href="https://www.entropy2020.cn/"/>
+  <updated>2022-11-13T05:49:27.825Z</updated>
+  <id>https://www.entropy2020.cn/</id>
   
   <author>
     <name>Vast Gui</name>
@@ -18,10 +18,10 @@
   
   <entry>
     <title>指令系统</title>
-    <link href="https://blog.entropy2020.cn/2022/11/12/co-instruction-system/"/>
-    <id>https://blog.entropy2020.cn/2022/11/12/co-instruction-system/</id>
+    <link href="https://www.entropy2020.cn/2022/11/12/co-instruction-system/"/>
+    <id>https://www.entropy2020.cn/2022/11/12/co-instruction-system/</id>
     <published>2022-11-12T14:32:38.000Z</published>
-    <updated>2022-11-13T05:39:59.943Z</updated>
+    <updated>2022-11-13T05:49:27.825Z</updated>
     
     <content type="html"><![CDATA[<h2 id="CISC和RISC"><a href="#CISC和RISC" class="headerlink" title="CISC和RISC"></a>CISC和RISC</h2><h3 id="复杂指令集计算机CISC（Complex-Instruction-Set-Computer）"><a href="#复杂指令集计算机CISC（Complex-Instruction-Set-Computer）" class="headerlink" title="复杂指令集计算机CISC（Complex Instruction Set Computer）"></a>复杂指令集计算机CISC（Complex Instruction Set Computer）</h3><p>经典CISC指令系统Intel x86，IA64。</p><h3 id="精简指令集计算机RISC（Reduced-Instruction-Set-Computer）"><a href="#精简指令集计算机RISC（Reduced-Instruction-Set-Computer）" class="headerlink" title="精简指令集计算机RISC（Reduced Instruction Set Computer）"></a>精简指令集计算机RISC（Reduced Instruction Set Computer）</h3><blockquote><p>80-20定律：即80%的程序只用到了20%的指令。基于这一发现提出了RISC。</p></blockquote><ol><li>特点<ol><li>优先选取使用频率较高的一些设备。</li><li>采用LOAD&#x2F;STORE结构。</li><li>大多数指令在一个周期内完成。</li><li>采用简单的指令格式和寻址方式，<strong>指令长度固定</strong>。</li><li>固定的指令格式。</li><li>面向寄存器结构。</li><li>采用硬布线设计。</li><li>注重编译的优化。</li></ol></li></ol><p>经典RISC指令系统ARM，MIPS，RISC-V等。</p>]]></content>
     
@@ -34,16 +34,16 @@
     
     
     
-    <category term="计算机组成原理" scheme="https://blog.entropy2020.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/"/>
+    <category term="计算机组成原理" scheme="https://www.entropy2020.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/"/>
     
   </entry>
   
   <entry>
     <title>计算机系统中的数据表示</title>
-    <link href="https://blog.entropy2020.cn/2022/11/12/co-data-representation/"/>
-    <id>https://blog.entropy2020.cn/2022/11/12/co-data-representation/</id>
+    <link href="https://www.entropy2020.cn/2022/11/12/co-data-representation/"/>
+    <id>https://www.entropy2020.cn/2022/11/12/co-data-representation/</id>
     <published>2022-11-12T08:12:08.000Z</published>
-    <updated>2022-11-13T05:43:55.137Z</updated>
+    <updated>2022-11-13T05:50:26.842Z</updated>
     
     <content type="html"><![CDATA[<h2 id="浮点数"><a href="#浮点数" class="headerlink" title="浮点数"></a>浮点数</h2><h3 id="IEEE754"><a href="#IEEE754" class="headerlink" title="IEEE754"></a>IEEE754</h3><h4 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h4><p>根据<strong>IEEE754</strong>对于浮点数的定义，单精度浮点数的真值一般表示为：</p><p>$$N&#x3D;(-1)^s*2^{e-127}*1.f$$</p><p>其中数字符 $s$ 为1位， 阶码编码 $e$ 为8位（含1位阶符），尾数编码 $f$ 为23位。</p><h4 id="浮点数的加减运算"><a href="#浮点数的加减运算" class="headerlink" title="浮点数的加减运算"></a>浮点数的加减运算</h4><p>一般有下列五步</p><div class="mermaid-wrap"><pre class="mermaid-src" hidden>  graph LRA[对阶]--&gt;B[尾数加减]--&gt;C[规格化]--&gt;D[舍入]--&gt;E[判溢出]  </pre></div>]]></content>
     
@@ -56,16 +56,16 @@
     
     
     
-    <category term="计算机组成原理" scheme="https://blog.entropy2020.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/"/>
+    <category term="计算机组成原理" scheme="https://www.entropy2020.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/"/>
     
   </entry>
   
   <entry>
     <title>绪论</title>
-    <link href="https://blog.entropy2020.cn/2022/11/12/co-overview/"/>
-    <id>https://blog.entropy2020.cn/2022/11/12/co-overview/</id>
+    <link href="https://www.entropy2020.cn/2022/11/12/co-overview/"/>
+    <id>https://www.entropy2020.cn/2022/11/12/co-overview/</id>
     <published>2022-11-12T07:54:10.000Z</published>
-    <updated>2022-11-13T05:36:48.502Z</updated>
+    <updated>2022-11-13T05:50:18.573Z</updated>
     
     <content type="html"><![CDATA[<h2 id="存储器结构"><a href="#存储器结构" class="headerlink" title="存储器结构"></a>存储器结构</h2><h3 id="哈佛结构"><a href="#哈佛结构" class="headerlink" title="哈佛结构"></a>哈佛结构</h3><p>将程序指令存储和数据存储分开的存储器结构</p><p>哈佛结构是一种将程序指令存储和数据存储分开的存储器结构。哈佛结构是一种并行体系结构，它的主要特点是<strong>将程序和数据存储在不同的存储空间中</strong>，即程序存储器和数据存储器是两个独立的存储器，每个存储器独立编址、独立访问。</p><p><img src="https://pic.baike.soso.com/ugc/baikepic2/2927/cut-20141010153149-5372975.jpg/0" alt="哈佛结构"></p><h3 id="冯·诺依曼结构"><a href="#冯·诺依曼结构" class="headerlink" title="冯·诺依曼结构"></a>冯·诺依曼结构</h3><p>冯·诺依曼结构也称普林斯顿结构，是一种将程序指令存储器和数据存储器合并在一起的存储器结构。程序指令存储地址和数据存储地址指向同一个存储器的不同物理位置，因此<strong>程序指令和数据的宽度相同</strong>。</p><p><img src="https://tse2-mm.cn.bing.net/th/id/OIP-C.aHlwegcIgmy1b5owE2qf_AHaE5?pid=ImgDet&rs=1" alt="冯·诺依曼结构"></p><h2 id="计算机分类及性能描述"><a href="#计算机分类及性能描述" class="headerlink" title="计算机分类及性能描述"></a>计算机分类及性能描述</h2><h3 id="计算机分类"><a href="#计算机分类" class="headerlink" title="计算机分类"></a>计算机分类</h3><p>按用途分类</p><div class="mermaid-wrap"><pre class="mermaid-src" hidden>  graph LRA[按用途分类]--&gt;B[通用计算机]B[通用计算机]--&gt;C[个人计算机]B[通用计算机]--&gt;D[服务器]B[通用计算机]--&gt;E[超级计算器]A[按用途分类]--&gt;F[嵌入式计算机]  </pre></div><p>Flynn分类法</p><div class="mermaid-wrap"><pre class="mermaid-src" hidden>  graph LRA[Flynn分类法]--&gt;B[单指令流单数据流]A[Flynn分类法]--&gt;C[单指令流多数据流]A[Flynn分类法]--&gt;D[多指令流单数据流]A[Flynn分类法]--&gt;E[多指令流多数据流]  </pre></div><h3 id="Amdahl定律"><a href="#Amdahl定律" class="headerlink" title="Amdahl定律"></a>Amdahl定律</h3><p>$$加速比&#x3D;\frac{改进后的系统性能}{改进前的系统性能}&#x3D;\frac{改进前的系统总执行时间}{改进后的系统总只执行时间}$$</p><p>可改进比例用 $f_e$ 表示，例如总执行时间为100s，可以优化的时间为20s，则 $f_e$ 的值为0.2。</p><p>可改进部分改进后性能提高程度用 $r_e$ 表示，例如执行时间由20s缩短到5s，则 $r_e$ 的值为4。</p><p>通过上述分析，改进前执行时间为 $T_0$ ，改进后执行时间为 $T_n$ ，则有关系</p><p>$$T_n&#x3D;T_0(1-f_e+\frac{f_e}{r_e})$$</p><p>由此可得</p><p>$$S_p&#x3D;\frac{1}{1-f_e+\frac{f_e}{r_e}}$$</p>]]></content>
     
@@ -78,7 +78,7 @@
     
     
     
-    <category term="计算机组成原理" scheme="https://blog.entropy2020.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/"/>
+    <category term="计算机组成原理" scheme="https://www.entropy2020.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/"/>
     
   </entry>
   

@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://blog.entropy2020.cn/2022/11/12/co-data-representation/</loc>
+    <loc>https://www.entropy2020.cn/2022/11/12/co-data-representation/</loc>
     
     <lastmod>2022-11-13</lastmod>
     
@@ -11,7 +11,7 @@
   </url>
   
   <url>
-    <loc>https://blog.entropy2020.cn/2022/11/12/co-instruction-system/</loc>
+    <loc>https://www.entropy2020.cn/2022/11/12/co-overview/</loc>
     
     <lastmod>2022-11-13</lastmod>
     
@@ -20,7 +20,7 @@
   </url>
   
   <url>
-    <loc>https://blog.entropy2020.cn/2022/11/12/co-overview/</loc>
+    <loc>https://www.entropy2020.cn/2022/11/12/co-instruction-system/</loc>
     
     <lastmod>2022-11-13</lastmod>
     
@@ -30,7 +30,7 @@
   
 
   <url>
-    <loc>https://blog.entropy2020.cn/</loc>
+    <loc>https://www.entropy2020.cn/</loc>
     <lastmod>2022-11-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
@@ -38,7 +38,7 @@
 
   
   <url>
-    <loc>https://blog.entropy2020.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/</loc>
+    <loc>https://www.entropy2020.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/</loc>
     <lastmod>2022-11-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

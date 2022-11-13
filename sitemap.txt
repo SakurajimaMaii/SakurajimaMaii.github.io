@@ -1,5 +1,5 @@
-https://blog.entropy2020.cn/2022/11/12/co-data-representation/
-https://blog.entropy2020.cn/2022/11/12/co-instruction-system/
-https://blog.entropy2020.cn/2022/11/12/co-overview/
-https://blog.entropy2020.cn/
-https://blog.entropy2020.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/
+https://www.entropy2020.cn/2022/11/12/co-data-representation/
+https://www.entropy2020.cn/2022/11/12/co-overview/
+https://www.entropy2020.cn/2022/11/12/co-instruction-system/
+https://www.entropy2020.cn/
+https://www.entropy2020.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/
