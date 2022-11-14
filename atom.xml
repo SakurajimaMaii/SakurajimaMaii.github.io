@@ -6,7 +6,7 @@
   <link href="https://www.entropy2020.cn/atom.xml" rel="self"/>
   
   <link href="https://www.entropy2020.cn/"/>
-  <updated>2022-11-13T10:40:38.359Z</updated>
+  <updated>2022-11-13T14:55:16.788Z</updated>
   <id>https://www.entropy2020.cn/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>程序中断方式</title>
+    <link href="https://www.entropy2020.cn/2022/11/13/computer_organization/co-program-interrupt-mode/"/>
+    <id>https://www.entropy2020.cn/2022/11/13/computer_organization/co-program-interrupt-mode/</id>
+    <published>2022-11-13T14:47:24.000Z</published>
+    <updated>2022-11-13T14:55:16.788Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="CPU对于中断的处理"><a href="#CPU对于中断的处理" class="headerlink" title="CPU对于中断的处理"></a>CPU对于中断的处理</h2><h3 id="CPU对DMA的处理"><a href="#CPU对DMA的处理" class="headerlink" title="CPU对DMA的处理"></a>CPU对DMA的处理</h3><p>CPU一般会在机器周期结束时刻响应DMA中断。这是因为DMA中断优先级比较高，需要CPU尽快响应。但是CPU至少要把手头的工作忙完（完成基本操作，即<strong>机器周期</strong>），因此会在机器周期后进行响应。</p><h3 id="CPU对于一般中断的响应"><a href="#CPU对于一般中断的响应" class="headerlink" title="CPU对于一般中断的响应"></a>CPU对于一般中断的响应</h3><p>需要满足以下条件：</p><ol><li>IF=1。</li><li>现行指令执行结束。CPU在每一个指令周期的最后一个总线周期的最后一个时钟周期的开始采样中断请求输入线，若有中断请求，则下一步不进入取指令周期，而进入中断响应周期</li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;CPU对于中断的处理&quot;&gt;&lt;a href=&quot;#CPU对于中断的处理&quot; class=&quot;headerlink&quot; title=&quot;CPU对于中断的处理&quot;&gt;&lt;/a&gt;CPU对于中断的处理&lt;/h2&gt;&lt;h3 id=&quot;CPU对DMA的处理&quot;&gt;&lt;a href=&quot;#CPU对DMA的处理&quot;</summary>
+      
+    
+    
+    
+    
+    <category term="计算机组成原理" scheme="https://www.entropy2020.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/"/>
+    
+  </entry>
   
   <entry>
     <title>日记（2022-11-13）</title>
@@ -44,15 +66,14 @@
     <link href="https://www.entropy2020.cn/2022/11/13/computer_organization/co-external-storage/"/>
     <id>https://www.entropy2020.cn/2022/11/13/computer_organization/co-external-storage/</id>
     <published>2022-11-13T09:34:11.000Z</published>
-    <updated>2022-11-13T10:05:54.343Z</updated>
+    <updated>2022-11-14T11:36:13.531Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="磁盘存储"><a href="#磁盘存储" class="headerlink" title="磁盘存储"></a>磁盘存储</h2><p>通常会用到下列计算公式：</p><script type="math/tex; mode=display">非格式化存储容量=位密度\times内圆周长\times每面磁道数\times记录面数</script><script type="math/tex; mode=display">格式化存储容量=扇区大小\times每磁道扇区数\times每面磁道数\times记录面数</script><script type="math/tex; mode=display">格式化存储容量=扇区大小\times每磁道扇区数\times转速</script>]]></content>
+    <content type="html"><![CDATA[<h2 id="磁盘存储"><a href="#磁盘存储" class="headerlink" title="磁盘存储"></a>磁盘存储</h2><h3 id="容量计算格式"><a href="#容量计算格式" class="headerlink" title="容量计算格式"></a>容量计算格式</h3><p>$非格式化存储容量=位密度\times内圆周长\times每面磁道数\times记录面数$</p><p>$格式化存储容量=扇区大小\times每磁道扇区数\times每面磁道数\times记录面数$</p><p>$格式化存储容量=扇区大小\times每磁道扇区数\times转速$</p><h3 id="RAID的种类及介绍-1"><a href="#RAID的种类及介绍-1" class="headerlink" title="RAID的种类及介绍[1]"></a>RAID的种类及介绍<a href="#references"><sup>[1]</sup></a></h3><p>RAID 的两个关键目标是提高数据可靠性和 I/O 性能。<br>RAID 的主要有三个关键概念和技术：镜像（ Mirroring ）、数据条带（ Data Stripping ）和数据校验（ Data parity ）。</p><ul><li>镜像，将数据复制到多个磁盘，一方面可以提高可靠性，另一方面可并发从两个或多个副本读取数据来提高读性能。显而易见，镜像的写性能要稍低， 确保数据正确地写到多个磁盘需要更多的时间消耗。</li><li>数据条带，将数据分片保存在多个不同的磁盘，多个数据分片共同组成一个完整数据副本，这与镜像的多个副本是不同的，它通常用于性能考虑。数据条带具有更高的并发粒度，当访问数据时，可以同时对位于不同磁盘上数据进行读写操作， 从而获得非常可观的 I/O 性能提升 。</li><li>数据校验，利用冗余数据进行数据错误检测和修复，冗余数据通常采用海明码、异或操作等算法来计算获得。利用校验功能，可以很大程度上提高磁盘阵列的可靠性、鲁棒性和容错能力。不过，数据校验需要从多处读取数据并进行计算和对比，会影响系统性能。</li></ul><div id="references"><h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p>[1] <a href="https://zhuanlan.zhihu.com/p/105597209#">RAID的种类及介绍</a></p>]]></content>
     
     
       
       
-    <summary type="html">&lt;h2 id=&quot;磁盘存储&quot;&gt;&lt;a href=&quot;#磁盘存储&quot; class=&quot;headerlink&quot; title=&quot;磁盘存储&quot;&gt;&lt;/a&gt;磁盘存储&lt;/h2&gt;&lt;p&gt;通常会用到下列计算公式：&lt;/p&gt;
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;非格式化存储容</summary>
+    <summary type="html">&lt;h2 id=&quot;磁盘存储&quot;&gt;&lt;a href=&quot;#磁盘存储&quot; class=&quot;headerlink&quot; title=&quot;磁盘存储&quot;&gt;&lt;/a&gt;磁盘存储&lt;/h2&gt;&lt;h3 id=&quot;容量计算格式&quot;&gt;&lt;a href=&quot;#容量计算格式&quot; class=&quot;headerlink&quot; title=&quot;容量计算格</summary>
       
     
     
@@ -89,9 +110,9 @@
     <link href="https://www.entropy2020.cn/2022/11/12/computer_organization/co-data-representation/"/>
     <id>https://www.entropy2020.cn/2022/11/12/computer_organization/co-data-representation/</id>
     <published>2022-11-12T08:12:08.000Z</published>
-    <updated>2022-11-13T10:31:51.047Z</updated>
+    <updated>2022-11-13T15:07:07.511Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="浮点数"><a href="#浮点数" class="headerlink" title="浮点数"></a>浮点数</h2><h3 id="IEEE754"><a href="#IEEE754" class="headerlink" title="IEEE754"></a>IEEE754</h3><h4 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h4><p>根据<strong>IEEE754</strong>对于浮点数的定义，单精度浮点数的真值一般表示为：</p><script type="math/tex; mode=display">N=(-1)^s*2^{e-127}*1.f</script><p>其中数字符 $s$ 为1位， 阶码编码 $e$ 为8位（含1位阶符），尾数编码 $f$ 为23位。</p><h4 id="浮点数的加减运算"><a href="#浮点数的加减运算" class="headerlink" title="浮点数的加减运算"></a>浮点数的加减运算</h4><p>一般有下列五步</p><div class="mermaid-wrap"><pre class="mermaid-src" hidden>  graph LRA[对阶]--&gt;B[尾数加减]--&gt;C[规格化]--&gt;D[舍入]--&gt;E[判溢出]  </pre></div><h4 id="计算示例"><a href="#计算示例" class="headerlink" title="计算示例"></a>计算示例</h4><p>已知X和Y都是IEEE754标准格式的浮点数。求X+Y和X-Y，结果仍用IEEE754表示。</p><p>$X=0,10010010,00110110100000000000000$<br>$Y=0,10001110,10000100000000000000000$</p><h5 id="对阶"><a href="#对阶" class="headerlink" title="对阶"></a>对阶</h5><script type="math/tex; mode=display">[X_{阶数}-Y_{阶数}]_补=[X_{阶数}]_移-[Y_{阶数}]_移</script><p>由此可得到X的阶数比Y的阶数大4。</p><h5 id="尾数加减"><a href="#尾数加减" class="headerlink" title="尾数加减"></a>尾数加减</h5><p>对阶后X和Y的尾数分别为</p><p>$X<em>{尾数}=1.00110110100000000000000$<br>$Y</em>{尾数}=0.00011000010000000000000$</p><p>由此可以得出</p><p>$X+Y=0,10010010,00110110100000000000000$<br>$X-Y=0,10001110,10000100000000000000000$</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="浮点数"><a href="#浮点数" class="headerlink" title="浮点数"></a>浮点数</h2><h3 id="IEEE754"><a href="#IEEE754" class="headerlink" title="IEEE754"></a>IEEE754</h3><h4 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h4><p>根据<strong>IEEE754</strong>对于浮点数的定义，单精度浮点数的真值一般表示为：</p><script type="math/tex; mode=display">N=(-1)^s*2^{e-127}*1.f</script><p>其中数字符 $s$ 为1位， 阶码编码 $e$ 为8位（含1位阶符），尾数编码 $f$ 为23位。</p><h4 id="浮点数的加减运算"><a href="#浮点数的加减运算" class="headerlink" title="浮点数的加减运算"></a>浮点数的加减运算</h4><p>一般有下列五步</p><div class="mermaid-wrap"><pre class="mermaid-src" hidden>  graph LRA[对阶]--&gt;B[尾数加减]--&gt;C[规格化]--&gt;D[舍入]--&gt;E[判溢出]  </pre></div><h4 id="计算示例"><a href="#计算示例" class="headerlink" title="计算示例"></a>计算示例</h4><p>已知X和Y都是IEEE754标准格式的浮点数。求X+Y和X-Y，结果仍用IEEE754表示。</p><p>$X=0,10010010,00110110100000000000000$<br>$Y=0,10001110,10000100000000000000000$</p><h5 id="对阶"><a href="#对阶" class="headerlink" title="对阶"></a>对阶</h5><script type="math/tex; mode=display">[X_{阶数}-Y_{阶数}]_补=[X_{阶数}]_移-[Y_{阶数}]_移</script><p>由此可得到X的阶数比Y的阶数大4。</p><h5 id="尾数加减"><a href="#尾数加减" class="headerlink" title="尾数加减"></a>尾数加减</h5><p>对阶后X和Y的尾数分别为</p><p>$X<em>{尾数}=1.00110110100000000000000$<br>$Y</em>{尾数}=0.00011000010000000000000$</p><p>由此可以得出</p><p>$X+Y=0,10010010,00110110100000000000000$<br>$X-Y=0,10001110,10000100000000000000000$</p><h4 id="浮点数的上溢和下溢处理"><a href="#浮点数的上溢和下溢处理" class="headerlink" title="浮点数的上溢和下溢处理"></a>浮点数的上溢和下溢处理</h4><p>浮点数有<strong>上溢区</strong>和<strong>下溢区</strong>之分，当浮点数的阶码大于最大阶码时，称为==上溢==，此时机器停止运算，进行溢出中断处理；如果阶码小于最小的阶码时，称为==下溢==， 此时溢出的数值非常小，直接强制将浮点数的尾数置为0，可以继续执行运算。</p>]]></content>
     
     
       
@@ -111,9 +132,9 @@
     <link href="https://www.entropy2020.cn/2022/11/12/computer_organization/co-overview/"/>
     <id>https://www.entropy2020.cn/2022/11/12/computer_organization/co-overview/</id>
     <published>2022-11-12T07:54:10.000Z</published>
-    <updated>2022-11-13T05:50:18.573Z</updated>
+    <updated>2022-11-14T11:35:59.915Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="存储器结构"><a href="#存储器结构" class="headerlink" title="存储器结构"></a>存储器结构</h2><h3 id="哈佛结构"><a href="#哈佛结构" class="headerlink" title="哈佛结构"></a>哈佛结构</h3><p>将程序指令存储和数据存储分开的存储器结构</p><p>哈佛结构是一种将程序指令存储和数据存储分开的存储器结构。哈佛结构是一种并行体系结构，它的主要特点是<strong>将程序和数据存储在不同的存储空间中</strong>，即程序存储器和数据存储器是两个独立的存储器，每个存储器独立编址、独立访问。</p><p><img src="https://pic.baike.soso.com/ugc/baikepic2/2927/cut-20141010153149-5372975.jpg/0" alt="哈佛结构"></p><h3 id="冯·诺依曼结构"><a href="#冯·诺依曼结构" class="headerlink" title="冯·诺依曼结构"></a>冯·诺依曼结构</h3><p>冯·诺依曼结构也称普林斯顿结构，是一种将程序指令存储器和数据存储器合并在一起的存储器结构。程序指令存储地址和数据存储地址指向同一个存储器的不同物理位置，因此<strong>程序指令和数据的宽度相同</strong>。</p><p><img src="https://tse2-mm.cn.bing.net/th/id/OIP-C.aHlwegcIgmy1b5owE2qf_AHaE5?pid=ImgDet&amp;rs=1" alt="冯·诺依曼结构"></p><h2 id="计算机分类及性能描述"><a href="#计算机分类及性能描述" class="headerlink" title="计算机分类及性能描述"></a>计算机分类及性能描述</h2><h3 id="计算机分类"><a href="#计算机分类" class="headerlink" title="计算机分类"></a>计算机分类</h3><p>按用途分类</p><div class="mermaid-wrap"><pre class="mermaid-src" hidden>  graph LRA[按用途分类]--&gt;B[通用计算机]B[通用计算机]--&gt;C[个人计算机]B[通用计算机]--&gt;D[服务器]B[通用计算机]--&gt;E[超级计算器]A[按用途分类]--&gt;F[嵌入式计算机]  </pre></div><p>Flynn分类法</p><div class="mermaid-wrap"><pre class="mermaid-src" hidden>  graph LRA[Flynn分类法]--&gt;B[单指令流单数据流]A[Flynn分类法]--&gt;C[单指令流多数据流]A[Flynn分类法]--&gt;D[多指令流单数据流]A[Flynn分类法]--&gt;E[多指令流多数据流]  </pre></div><h3 id="Amdahl定律"><a href="#Amdahl定律" class="headerlink" title="Amdahl定律"></a>Amdahl定律</h3><script type="math/tex; mode=display">加速比=\frac{改进后的系统性能}{改进前的系统性能}=\frac{改进前的系统总执行时间}{改进后的系统总只执行时间}</script><p>可改进比例用 $f_e$ 表示，例如总执行时间为100s，可以优化的时间为20s，则 $f_e$ 的值为0.2。</p><p>可改进部分改进后性能提高程度用 $r_e$ 表示，例如执行时间由20s缩短到5s，则 $r_e$ 的值为4。</p><p>通过上述分析，改进前执行时间为 $T_0$ ，改进后执行时间为 $T_n$ ，则有关系</p><script type="math/tex; mode=display">T_n=T_0(1-f_e+\frac{f_e}{r_e})</script><p>由此可得</p><script type="math/tex; mode=display">S_p=\frac{1}{1-f_e+\frac{f_e}{r_e}}</script>]]></content>
+    <content type="html"><![CDATA[<h2 id="存储器结构"><a href="#存储器结构" class="headerlink" title="存储器结构"></a>存储器结构</h2><h3 id="哈佛结构"><a href="#哈佛结构" class="headerlink" title="哈佛结构"></a>哈佛结构</h3><p>将程序指令存储和数据存储分开的存储器结构</p><p>哈佛结构是一种将程序指令存储和数据存储分开的存储器结构。哈佛结构是一种并行体系结构，它的主要特点是<strong>将程序和数据存储在不同的存储空间中</strong>，即程序存储器和数据存储器是两个独立的存储器，每个存储器独立编址、独立访问。</p><p><img src="https://pic.baike.soso.com/ugc/baikepic2/2927/cut-20141010153149-5372975.jpg/0" alt="哈佛结构"></p><h3 id="冯·诺依曼结构"><a href="#冯·诺依曼结构" class="headerlink" title="冯·诺依曼结构"></a>冯·诺依曼结构</h3><p>冯·诺依曼结构也称普林斯顿结构，是一种将程序指令存储器和数据存储器合并在一起的存储器结构。程序指令存储地址和数据存储地址指向同一个存储器的不同物理位置，因此<strong>程序指令和数据的宽度相同</strong>。</p><p><img src="https://tse2-mm.cn.bing.net/th/id/OIP-C.aHlwegcIgmy1b5owE2qf_AHaE5?pid=ImgDet&amp;rs=1" alt="冯·诺依曼结构"></p><h2 id="计算机分类及性能描述"><a href="#计算机分类及性能描述" class="headerlink" title="计算机分类及性能描述"></a>计算机分类及性能描述</h2><h3 id="计算机分类"><a href="#计算机分类" class="headerlink" title="计算机分类"></a>计算机分类</h3><h4 id="按用途分类"><a href="#按用途分类" class="headerlink" title="按用途分类"></a>按用途分类</h4><div class="mermaid-wrap"><pre class="mermaid-src" hidden>  graph LRA[按用途分类]--&gt;B[通用计算机]B[通用计算机]--&gt;C[个人计算机]B[通用计算机]--&gt;D[服务器]B[通用计算机]--&gt;E[超级计算器]A[按用途分类]--&gt;F[嵌入式计算机]  </pre></div><h4 id="Flynn分类法-1"><a href="#Flynn分类法-1" class="headerlink" title="Flynn分类法[1]"></a>Flynn分类法<a href="#references"><sup>[1]</sup></a></h4><p>Flynn分类法是按照计算机在执行过程中的信息流特征进行分类的，在程序执行过程中通常存在下列三种信息流。</p><ol><li>指令流（IS）：指机器执行的指令序列。</li><li>数据流（DS）：指令流使用的数据，包括输入数据，中间数据和结果，但不包括输出数据。</li><li>控制流（CS）：指令流进入CU，由CU产生一系列信号，在控制流作用下完成指令。</li></ol><p><strong>Flynn根据不同的指令流和数据流组织方式，把计算机系统分成如下4类<a href="#references"><sup>[2]</sup></a>。</strong></p><div class="mermaid-wrap"><pre class="mermaid-src" hidden>  graph LRA[Flynn分类法]--&gt;B[单指令流单数据流]A[Flynn分类法]--&gt;C[单指令流多数据流]A[Flynn分类法]--&gt;D[多指令流单数据流]A[Flynn分类法]--&gt;E[多指令流多数据流]  </pre></div><p><img src="https://picd.zhimg.com/v2-fffa79aaf8c89898e88d51f8461afb3a_1440w.jpg?source=172ae18b" alt="Flynn分类"></p><h3 id="Amdahl定律"><a href="#Amdahl定律" class="headerlink" title="Amdahl定律"></a>Amdahl定律</h3><script type="math/tex; mode=display">加速比=\frac{改进后的系统性能}{改进前的系统性能}=\frac{改进前的系统总执行时间}{改进后的系统总只执行时间}</script><p>可改进比例用 $f_e$ 表示，例如总执行时间为100s，可以优化的时间为20s，则 $f_e$ 的值为0.2。</p><p>可改进部分改进后性能提高程度用 $r_e$ 表示，例如执行时间由20s缩短到5s，则 $r_e$ 的值为4。</p><p>通过上述分析，改进前执行时间为 $T_0$ ，改进后执行时间为 $T_n$ ，则有关系</p><script type="math/tex; mode=display">T_n=T_0(1-f_e+\frac{f_e}{r_e})</script><p>由此可得</p><script type="math/tex; mode=display">S_p=\frac{1}{1-f_e+\frac{f_e}{r_e}}</script><div id="references"><h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p>[1] <a href="https://zhuanlan.zhihu.com/p/413778318#">知乎-Flynn分类法</a><br>[2] <a href="https://bbs.huaweicloud.com/blogs/236183">华为云-Flynn分类法</a></p>]]></content>
     
     
       
