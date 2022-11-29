@@ -1,0 +1,503 @@
+<!DOCTYPE html><html lang="zh-Hans" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>矩阵 | Bug缔造者</title><meta name="author" content="Vast Gui"><meta name="copyright" content="Vast Gui"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="矩阵的概念和运算矩阵的概念 矩阵的概念 $m*n$个数排成如下$m$行$n$列的表格，   \begin{bmatrix}  a_{11} &amp; a_{12}  &amp; \cdots &amp; a_{1n}      \\  a_{21} &amp; a_{22}  &amp; \cdots &amp; a_{2n}      \\  \vdots &amp; \vdots &amp; \vdots \\  a_{m1} &amp; a_{m2}  &amp; \">
+<meta property="og:type" content="article">
+<meta property="og:title" content="矩阵">
+<meta property="og:url" content="https://www.entropy2020.cn/2022/11/28/linear_algebra/matrix/index.html">
+<meta property="og:site_name" content="Bug缔造者">
+<meta property="og:description" content="矩阵的概念和运算矩阵的概念 矩阵的概念 $m*n$个数排成如下$m$行$n$列的表格，   \begin{bmatrix}  a_{11} &amp; a_{12}  &amp; \cdots &amp; a_{1n}      \\  a_{21} &amp; a_{22}  &amp; \cdots &amp; a_{2n}      \\  \vdots &amp; \vdots &amp; \vdots \\  a_{m1} &amp; a_{m2}  &amp; \">
+<meta property="og:locale">
+<meta property="og:image" content="https://pic.entropy2020.cn/i/2022/11/29/638609707d398.png">
+<meta property="article:published_time" content="2022-11-28T14:55:56.000Z">
+<meta property="article:modified_time" content="2022-11-29T13:31:14.814Z">
+<meta property="article:author" content="Vast Gui">
+<meta property="article:tag" content="线性代数">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic.entropy2020.cn/i/2022/11/29/638609707d398.png"><link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/46998172?v=4"><link rel="canonical" href="https://www.entropy2020.cn/2022/11/28/linear_algebra/matrix/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '矩阵',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-11-29 21:31:14'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><!-- hexo injector head_end start --><link rel="stylesheet" href="https://unpkg.zhimg.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://unpkg.zhimg.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://unpkg.zhimg.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Bug缔造者" type="application/atom+xml">
+</head><body><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js/themes/blue/pace-theme-minimal.min.css"/><script src="https://cdn.jsdelivr.net/npm/pace-js/pace.min.js"></script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://avatars.githubusercontent.com/u/46998172?v=4" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-heart"></i><span> 画廊</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://pic.entropy2020.cn/i/2022/11/29/638609707d398.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Bug缔造者</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-heart"></i><span> 画廊</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">矩阵</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2022-11-28T14:55:56.000Z" title="Created 2022-11-28 22:55:56">2022-11-28</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2022-11-29T13:31:14.814Z" title="Updated 2022-11-29 21:31:14">2022-11-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="矩阵"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="矩阵的概念和运算"><a href="#矩阵的概念和运算" class="headerlink" title="矩阵的概念和运算"></a>矩阵的概念和运算</h2><h3 id="矩阵的概念"><a href="#矩阵的概念" class="headerlink" title="矩阵的概念"></a>矩阵的概念</h3><ol>
+<li><p>矩阵的概念<br> $m*n$个数排成如下$m$行$n$列的表格，</p>
+<script type="math/tex; mode=display">
+ \begin{bmatrix}
+ a_{11} & a_{12}  & \cdots & a_{1n}      \\
+ a_{21} & a_{22}  & \cdots & a_{2n}      \\
+ \vdots & \vdots & \vdots \\
+ a_{m1} & a_{m2}  & \cdots & a_{mn}      \\
+ \end{bmatrix}</script><p> 称为是一个$m<em>n$的矩阵，当$m=n$的时候，称为<strong>n阶矩阵</strong>或者<em>*n阶方阵</em></em>。</p>
+</li>
+<li><p>零矩阵<br> 当一个矩阵的所有元素都为0的时候称为<strong>零矩阵</strong>，记作<strong>0</strong>。</p>
+<script type="math/tex; mode=display">
+ \begin{bmatrix}
+ 0 & 0  & \cdots & 0     \\
+ 0 & 0  & \cdots & 0    \\
+ \vdots & \vdots & \vdots \\
+ 0 & 0  & \cdots & 0     \\
+ \end{bmatrix}</script></li>
+<li><p>同型矩阵<br> 两个矩阵行数和列数都相等称为<strong>同型矩阵</strong>。</p>
+</li>
+<li><p>矩阵相等<br> 两个同型矩阵对应的元素都相等称为<strong>矩阵AB相等，记作A=B</strong>。</p>
+</li>
+</ol>
+<h3 id="矩阵的运算"><a href="#矩阵的运算" class="headerlink" title="矩阵的运算"></a>矩阵的运算</h3><ol>
+<li><p>相加<br> 两个同型矩阵可以相加</p>
+<script type="math/tex; mode=display">A+B=[a_{ij}]_{m*n}+[b_{ij}]_{m*n}=[a_{ij}+b_{ij}]_{m*n}</script></li>
+<li><p>数乘<br> 设$k$是数，则有</p>
+<script type="math/tex; mode=display">kA=k[a_{ij}]_{m*n}=[ka_{ij}]_{m*n}</script></li>
+<li><p>乘法</p>
+<script type="math/tex; mode=display">c_{ij}=\sum_{k=1}^s a_{ik}b_{kj}=a_{i1}b_{1j}+a_{i2}b_{2j}+....+a_{is}b_{sj}</script><blockquote>
+<p>注意点</p>
+<pre><code> 1. $AB \ne BA$
+ 2. $AB=0 \nRightarrow A=0或B=0$
+ 3. $AB=AC,A \ne 0 \nRightarrow B=C$
+</code></pre></blockquote>
+</li>
+<li><p>关于$\alpha\beta^T$，$\beta\alpha^T$，$\alpha^T\beta$，$\beta^T\alpha$</p>
+<p> 注意$\alpha\alpha^T$是<strong>对称矩阵</strong></p>
+</li>
+<li><p>转置<br> 将$m×n$型矩阵$A=[a<em>{ij}]</em>{m<em>n}$的行列互换得到的$n×m$矩阵$A[a<em>{ji}]</em>{n</em>m}$称为A的转置矩阵，记为$A^T$，即若</p>
+<script type="math/tex; mode=display">A=
+ \begin{bmatrix}
+ a_{11} & a_{12}  \\
+ a_{21} & a_{22}  
+ \end{bmatrix}</script><p> 则有</p>
+<script type="math/tex; mode=display">A^T=
+ \begin{bmatrix}
+ a_{11} & a_{21}  \\
+ a_{12} & a_{22}  
+ \end{bmatrix}</script></li>
+<li><p>矩阵多项式<br> 设A是$n$阶矩阵，$f(x)=a<em>mx^m+…+a_1x+a_0$是x的多项式，则称$a_mA^m十a</em>{m-1}A^{m-1}+…十a_1A十a_0E$为矩阵多项式，记为 $f(A)$。</p>
+</li>
+<li><p>运算法则<br> (1) 加法</p>
+<pre><code> $A+B=B+A$
+ $(A+B)+C=A+(B+C)$
+ $A+0=A$
+ $A+(-A)=0$
+</code></pre><p> (2) 数乘矩阵</p>
+<pre><code> $k(mB)=(km)A$
+ $(k+m)A=kA+mA$
+ $k(A+B)=kA+kB$
+ $0A=0$
+</code></pre><p> (3) 乘法</p>
+<pre><code> $(AB)C=A(BC)$
+ $A(B+C)=AB+AC$
+ $(A+B)C=AC+BC$
+</code></pre><p> (4) 转置</p>
+<pre><code> $(A+B)^T=A^T+B^T$
+ $(kA)^T=kA^T$
+ $(AB)^T=B^TA^T$
+ $(A^T)^T=A$
+</code></pre></li>
+</ol>
+<h3 id="常见的矩阵"><a href="#常见的矩阵" class="headerlink" title="常见的矩阵"></a>常见的矩阵</h3><ol>
+<li><p>单位矩阵<br> 单位矩阵用$E$表示</p>
+<script type="math/tex; mode=display">
+ \begin{bmatrix}
+ 1 & 0  \\
+ 0 & 1  
+ \end{bmatrix}</script></li>
+<li><p>数乘矩阵<br> 数$k$和单位矩阵$E$的积$kE$称为数量阵</p>
+</li>
+<li><p>对角矩阵</p>
+<script type="math/tex; mode=display">
+ \begin{bmatrix}
+ a_1 & 0  \\
+ 0 & a_2  
+ \end{bmatrix}
+ \begin{bmatrix}
+ b_1 & 0  \\
+ 0 & b_2  
+ \end{bmatrix} =
+ \begin{bmatrix}
+ a_1b_1 & 0  \\
+ 0 & a_2b_2  
+ \end{bmatrix}</script><p> 对角矩阵的注意事项<br> (1) $AB=BA$<br> (2) $$</p>
+<pre><code> \begin&#123;bmatrix&#125;
+ a_1 &amp; 0  \\
+ 0 &amp; a_2  
+ \end&#123;bmatrix&#125;^n =
+ \begin&#123;bmatrix&#125;
+ a_1^n &amp; 0  \\
+ 0 &amp; a_2^n  
+ \end&#123;bmatrix&#125;
+ $$
+</code></pre><p> (3) $$</p>
+<pre><code> \begin&#123;bmatrix&#125;
+ a_1 &amp; 0  \\
+ 0 &amp; a_2  
+ \end&#123;bmatrix&#125;^&#123;-1&#125; =
+ \begin&#123;bmatrix&#125;
+ \frac&#123;1&#125;&#123;a_1&#125; &amp; 0  \\
+ 0 &amp; \frac&#123;1&#125;&#123;a_2&#125;
+ \end&#123;bmatrix&#125;
+ $$
+</code></pre></li>
+<li><p>上（下）三角阵<br> 当$i&gt;j(i&lt;j)$时，有$a_{ij}$的矩阵称为上（下）三角阵</p>
+<script type="math/tex; mode=display">
+ \begin{bmatrix}
+ 1 & 0 & 0\\
+ 2 & 3 & 0\\
+ 4 & 5 & 6  
+ \end{bmatrix}</script><script type="math/tex; mode=display">
+ \begin{bmatrix}
+ 1 & 2 & 3\\
+ 0 & 4 & 5\\
+ 0 & 0 & 6  
+ \end{bmatrix}</script></li>
+<li><p>对称阵<br> 满足$A^T=A$的对称阵</p>
+</li>
+<li><p>反对称阵<br> 满足$A^T=-A$的对称阵</p>
+</li>
+</ol>
+<h2 id="伴随矩阵、可逆矩阵"><a href="#伴随矩阵、可逆矩阵" class="headerlink" title="伴随矩阵、可逆矩阵"></a>伴随矩阵、可逆矩阵</h2><h3 id="伴随矩阵的概念与公式"><a href="#伴随矩阵的概念与公式" class="headerlink" title="伴随矩阵的概念与公式"></a>伴随矩阵的概念与公式</h3><ol>
+<li><p>伴随矩阵的概念</p>
+<p> 对于矩阵$A$对应的行列式$|A|$所有代数余子式构成的形如</p>
+<script type="math/tex; mode=display">
+ \begin{bmatrix}
+ A_{11} & A_{12}  & \cdots & A_{1n}      \\
+ A_{21} & A_{22}  & \cdots & A_{2n}      \\
+ \vdots & \vdots & \vdots \\
+ A_{m1} & A_{m2}  & \cdots & A_{mn}      \\
+ \end{bmatrix}</script><p> 称为矩阵$A$的伴随矩阵，记作$A^*$</p>
+</li>
+<li><p>伴随矩阵的公式</p>
+<ol>
+<li>$AA^<em>=A^</em>A=|A|E$<blockquote>
+<p>由此可以得出$A^*=|A|A^{-1}$</p>
+</blockquote>
+</li>
+<li>$(A^<em>)^{-1}=(A^{-1})^</em>=\frac{1}{|A|}A$</li>
+<li>$(kA)^<em>=k^{n-1}A^</em>$</li>
+<li>$(A^<em>)^T=(A^T)^</em>$</li>
+<li>$|A^*|=|A|^{n-1}$</li>
+<li>$(A^<em>)^</em>=|A|^{n-2}A(n\geqq2)$</li>
+</ol>
+</li>
+</ol>
+<h3 id="可逆矩阵的概念和定理"><a href="#可逆矩阵的概念和定理" class="headerlink" title="可逆矩阵的概念和定理"></a>可逆矩阵的概念和定理</h3><ol>
+<li><p>概念<br> 对于$n$阶矩阵$A$，如果存在$n$阶矩阵$B$使得</p>
+<script type="math/tex; mode=display">
+ AB=BA=E</script><p> 则称$A$是可逆矩阵或者非奇异矩阵，$B$称为$A$的逆矩阵，记成$A^{-1}=B$</p>
+</li>
+<li><p>定理</p>
+<ol>
+<li>如果$A$矩阵可逆，则它的逆矩阵唯一<blockquote>
+<p>设B、C都是A的逆矩阵，则有<br>$AB=BA=E$和$AC=CA=E$<br>那么很容易得出<br>$B=BE=B(AC)=(BA)C=EC=C$</p>
+</blockquote>
+</li>
+<li>$A可逆\Leftrightarrow|A|\ne0$<blockquote>
+<p>如果$A$可逆，则存在$A^{-1}$</p>
+<script type="math/tex; mode=display">|A \cdot A^{-1}| = |E| \Rightarrow |A||A^{-1}| = 1</script><p>如果$|A|=0$，由$AA^<em>=A^</em>A=|A|E$可以得到</p>
+<script type="math/tex; mode=display">A \cdot \frac{A^*}{|A|} = \frac{A^*}{|A|} \cdot A =E</script><p>同时也可以得到</p>
+<script type="math/tex; mode=display">A^{-1} = \frac{A^*}{|A|}</script></blockquote>
+</li>
+<li>设$A$和$B$都是$n$阶矩阵且$AB=E$，则有$BA=E$</li>
+</ol>
+</li>
+<li><p>推论</p>
+<ol>
+<li>如果$A$矩阵可逆，则$A^{-1}$也可逆，且$(A^{-1})^{-1}=A$</li>
+<li>如果$A$矩阵可逆，且$k \ne 0$，则$kA$也可逆，且$(kA)^{-1}=\frac{1}{k}A^{-1}$</li>
+<li>如果$A$和$B$均可逆，则$AB$也可逆，且$(AB)^{-1}=B^{-1}A^{-1}$</li>
+</ol>
+</li>
+<li><p>求逆矩阵的方法</p>
+<ol>
+<li><script type="math/tex; mode=display">A^{-1} = \frac{A^*}{|A|}</script></li>
+<li>用初等变换法 $(A|B) \Rightarrow (E|A^{-1})$</li>
+<li>使用定义求解</li>
+<li>使用分块矩阵<script type="math/tex; mode=display">
+  \begin{bmatrix}
+  A & 0 \\
+  0 & C \\
+  \end{bmatrix}^{-1}=
+  \begin{bmatrix}
+  A^{-1} & 0 \\
+  0 & C^{-1} \\
+  \end{bmatrix}</script></li>
+</ol>
+</li>
+</ol>
+<h2 id="初等变换、初等矩阵"><a href="#初等变换、初等矩阵" class="headerlink" title="初等变换、初等矩阵"></a>初等变换、初等矩阵</h2><h3 id="初等变换与初等矩阵的概念"><a href="#初等变换与初等矩阵的概念" class="headerlink" title="初等变换与初等矩阵的概念"></a>初等变换与初等矩阵的概念</h3><ol>
+<li><p>初等变换</p>
+<p> 初等变换包含倍加，倍乘和互换</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">A[初等变换]--&gt;B[倍加]</span><br><span class="line">A[初等变换]--&gt;C[倍乘]</span><br><span class="line">A[初等变换]--&gt;D[互换]</span><br></pre></td></tr></table></figure>
+<ol>
+<li>倍乘：用某个非零常数$k(k \ne 0)$乘$A$的某行（列）的每个元素</li>
+<li>倍加：将$A$的某行（列）的元素的$k$倍加到另一行</li>
+<li>互换：互换$A$的某两行（列）的位置</li>
+</ol>
+</li>
+<li><p>初等矩阵<br> 由<strong>单位矩阵</strong>经过一次初等变换所得到的矩阵称为<strong>初等矩阵</strong>，存在下列三种情况：</p>
+<ol>
+<li><p>倍乘初等矩阵，用$E(i(k))$表示，例如</p>
+<script type="math/tex; mode=display">E(2(k))=
+ \begin{bmatrix}
+     1 & 0 & 0 \\
+     0 & k & 0 \\
+     0 & 0 & 1
+ \end{bmatrix}</script><p> 表示单位矩阵的第二行或者第二列乘$k$倍<br> 对倍乘初等矩阵来说，以上面的示例为例，它的逆矩阵可以表示为</p>
+<script type="math/tex; mode=display">E(2(k))^{-1}=
+ \begin{bmatrix}
+     1 & 0 & 0 \\
+     0 & \frac{1}{k} & 0 \\
+     0 & 0 & 1
+ \end{bmatrix}</script></li>
+<li><p>互换初等矩阵，用$E(i,j)$表示，例如</p>
+<script type="math/tex; mode=display">E(1,2)=
+ \begin{bmatrix}
+     0 & 1 & 0 \\
+     1 & 0 & 0 \\
+     0 & 0 & 1
+ \end{bmatrix}</script><p> 表示单位矩阵的第一行和第二行互换，或者第一列和第二列互换<br> 对互换初等矩阵来说，以上面的示例为例，它的逆矩阵可以表示为</p>
+<script type="math/tex; mode=display">E(1,2)^{-1}=
+ \begin{bmatrix}
+     0 & 1 & 0 \\
+     1 & 0 & 0 \\
+     0 & 0 & 1
+ \end{bmatrix}</script></li>
+<li><p>倍加初等矩阵，用$E(ij(k))$表示，例如</p>
+<script type="math/tex; mode=display">E(13(k))=
+ \begin{bmatrix}
+     1 & 0 & 0 \\
+     0 & 1 & 0 \\
+     k & 0 & 1
+ \end{bmatrix}</script><p> 表示第一行的$k$倍加到第三行的矩阵<br> 对倍加初等矩阵来说，以上面的示例为例，它的逆矩阵可以表示为</p>
+<script type="math/tex; mode=display">E(13(k))^{-1}=
+ \begin{bmatrix}
+     1 & 0 & 0 \\
+     0 & 1 & 0 \\
+     -k & 0 & 1
+ \end{bmatrix}</script></li>
+</ol>
+</li>
+<li><p>初等矩阵的左乘和右乘<br> 初等矩阵$P$<strong>左乘</strong>矩阵$A$所得到的结果$PA$，就是矩阵$A$做一次和$P$相同的<strong>行</strong>变换<br> 初等矩阵$P$<strong>右乘</strong>矩阵$A$所得到的结果$AP$，就是矩阵$A$做一次和$P$相同的<strong>列</strong>变换</p>
+</li>
+</ol>
+<h3 id="等价矩阵"><a href="#等价矩阵" class="headerlink" title="等价矩阵"></a>等价矩阵</h3><p>矩阵$A$经过<strong>有限次</strong>的初等变换所得到矩阵$B$，则称$A$和$B$等价，记作$A \cong B$</p>
+<h2 id="分块矩阵"><a href="#分块矩阵" class="headerlink" title="分块矩阵"></a>分块矩阵</h2><ol>
+<li><p>概念<br> 将矩阵用若干纵线和横线分成许多小块，每一个小块称为原矩阵的子矩阵或者子块</p>
+</li>
+<li><p>分块矩阵的计算</p>
+<script type="math/tex; mode=display">
+ \begin{bmatrix}
+ A & 0 \\
+ 0 & C \\
+ \end{bmatrix}^{-1}=
+ \begin{bmatrix}
+ A^{-1} & 0 \\
+ 0 & C^{-1} \\
+ \end{bmatrix}</script><script type="math/tex; mode=display">
+ \begin{bmatrix}
+ A & 0 \\
+ 0 & C \\
+ \end{bmatrix}^n=
+ \begin{bmatrix}
+ A^n & 0 \\
+ 0 & C^n \\
+ \end{bmatrix}</script><script type="math/tex; mode=display">
+ \begin{bmatrix}
+ A & B \\
+ C & D \\
+ \end{bmatrix}^T=
+ \begin{bmatrix}
+ A^T & B^T \\
+ C^T & D^T \\
+ \end{bmatrix}</script></li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="https://www.entropy2020.cn">Vast Gui</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://www.entropy2020.cn/2022/11/28/linear_algebra/matrix/">https://www.entropy2020.cn/2022/11/28/linear_algebra/matrix/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/">线性代数</a></div><div class="post_share"><div class="social-share" data-image="https://pic.entropy2020.cn/i/2022/11/29/638609707d398.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/11/29/diary/diary_2022_11_29/"><img class="prev-cover" src="https://pic.entropy2020.cn/i/2022/11/29/63860a72d2c37.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">日记（2022-11-29）</div></div></a></div><div class="next-post pull-right"><a href="/2022/11/16/linear_algebra/determinant/"><img class="next-cover" src="https://pic.entropy2020.cn/i/2022/11/29/638609dd05b99.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">行列式</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2022/11/16/linear_algebra/determinant/" title="行列式"><img class="cover" src="https://pic.entropy2020.cn/i/2022/11/29/638609dd05b99.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-16</div><div class="title">行列式</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://avatars.githubusercontent.com/u/46998172?v=4" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Vast Gui</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/SakurajimaMaii"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/SakurajimaMaii" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:guihy2019@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">欢迎来到我的代码世界</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9F%A9%E9%98%B5%E7%9A%84%E6%A6%82%E5%BF%B5%E5%92%8C%E8%BF%90%E7%AE%97"><span class="toc-number">1.</span> <span class="toc-text">矩阵的概念和运算</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9F%A9%E9%98%B5%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="toc-number">1.1.</span> <span class="toc-text">矩阵的概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9F%A9%E9%98%B5%E7%9A%84%E8%BF%90%E7%AE%97"><span class="toc-number">1.2.</span> <span class="toc-text">矩阵的运算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84%E7%9F%A9%E9%98%B5"><span class="toc-number">1.3.</span> <span class="toc-text">常见的矩阵</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%B4%E9%9A%8F%E7%9F%A9%E9%98%B5%E3%80%81%E5%8F%AF%E9%80%86%E7%9F%A9%E9%98%B5"><span class="toc-number">2.</span> <span class="toc-text">伴随矩阵、可逆矩阵</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%B4%E9%9A%8F%E7%9F%A9%E9%98%B5%E7%9A%84%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%85%AC%E5%BC%8F"><span class="toc-number">2.1.</span> <span class="toc-text">伴随矩阵的概念与公式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AF%E9%80%86%E7%9F%A9%E9%98%B5%E7%9A%84%E6%A6%82%E5%BF%B5%E5%92%8C%E5%AE%9A%E7%90%86"><span class="toc-number">2.2.</span> <span class="toc-text">可逆矩阵的概念和定理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9D%E7%AD%89%E5%8F%98%E6%8D%A2%E3%80%81%E5%88%9D%E7%AD%89%E7%9F%A9%E9%98%B5"><span class="toc-number">3.</span> <span class="toc-text">初等变换、初等矩阵</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9D%E7%AD%89%E5%8F%98%E6%8D%A2%E4%B8%8E%E5%88%9D%E7%AD%89%E7%9F%A9%E9%98%B5%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="toc-number">3.1.</span> <span class="toc-text">初等变换与初等矩阵的概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AD%89%E4%BB%B7%E7%9F%A9%E9%98%B5"><span class="toc-number">3.2.</span> <span class="toc-text">等价矩阵</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E5%9D%97%E7%9F%A9%E9%98%B5"><span class="toc-number">4.</span> <span class="toc-text">分块矩阵</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/11/29/diary/diary_2022_11_29/" title="日记（2022-11-29）"><img src="https://pic.entropy2020.cn/i/2022/11/29/63860a72d2c37.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="日记（2022-11-29）"/></a><div class="content"><a class="title" href="/2022/11/29/diary/diary_2022_11_29/" title="日记（2022-11-29）">日记（2022-11-29）</a><time datetime="2022-11-29T13:20:56.000Z" title="Created 2022-11-29 21:20:56">2022-11-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/28/linear_algebra/matrix/" title="矩阵"><img src="https://pic.entropy2020.cn/i/2022/11/29/638609707d398.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="矩阵"/></a><div class="content"><a class="title" href="/2022/11/28/linear_algebra/matrix/" title="矩阵">矩阵</a><time datetime="2022-11-28T14:55:56.000Z" title="Created 2022-11-28 22:55:56">2022-11-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/16/linear_algebra/determinant/" title="行列式"><img src="https://pic.entropy2020.cn/i/2022/11/29/638609dd05b99.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="行列式"/></a><div class="content"><a class="title" href="/2022/11/16/linear_algebra/determinant/" title="行列式">行列式</a><time datetime="2022-11-16T15:16:46.000Z" title="Created 2022-11-16 23:16:46">2022-11-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/13/computer_organization/co-program-interrupt-mode/" title="程序中断方式"><img src="https://pic.entropy2020.cn/i/2022/11/13/637105043ed0a.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="程序中断方式"/></a><div class="content"><a class="title" href="/2022/11/13/computer_organization/co-program-interrupt-mode/" title="程序中断方式">程序中断方式</a><time datetime="2022-11-13T14:47:24.000Z" title="Created 2022-11-13 22:47:24">2022-11-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/13/diary/diary_2022_11_13/" title="日记（2022-11-13）"><img src="https://pic.entropy2020.cn/i/2022/11/13/6370c9020f1c3.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="日记（2022-11-13）"/></a><div class="content"><a class="title" href="/2022/11/13/diary/diary_2022_11_13/" title="日记（2022-11-13）">日记（2022-11-13）</a><time datetime="2022-11-13T10:39:09.000Z" title="Created 2022-11-13 18:39:09">2022-11-13</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://pic.entropy2020.cn/i/2022/11/29/638609707d398.png')"><div id="footer-wrap"><div class="copyright">&copy;2022 By Vast Gui</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="icp"><a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/#/Integrated/index"><img class="icp-icon" src="https://neucrack.com/static/images/gonganbeian_logo.png"/><span>津ICP备20005520号-1</span></a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        insertScript: [200, () => {
+          document.querySelectorAll('mjx-container').forEach(node => {
+            if (node.hasAttribute('display')) {
+              btf.wrap(node, 'div', { class: 'mathjax-overflow' })
+            } else {
+              btf.wrap(node, 'span', { class: 'mathjax-overflow' })
+            }
+          });
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script><script>(() => {
+  const $mermaidWrap = document.querySelectorAll('#article-container .mermaid-wrap')
+  if ($mermaidWrap.length) {
+    window.runMermaid = () => {
+      window.loadMermaid = true
+      const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+      Array.from($mermaidWrap).forEach((item, index) => {
+        const mermaidSrc = item.firstElementChild
+        const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+        const mermaidID = 'mermaid-' + index
+        const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+        mermaid.mermaidAPI.render(mermaidID, mermaidDefinition, (svgCode) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svgCode)
+        })
+      })
+    }
+
+    const loadMermaid = () => {
+      window.loadMermaid ? runMermaid() : getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(runMermaid)
+    }
+
+    window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+  }
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><script async src="//at.alicdn.com/t/font_2032782_8d5kxvn09md.js"></script><!-- hexo injector body_end end --></body></html>
