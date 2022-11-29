@@ -1,6 +1,6 @@
+https://www.entropy2020.cn/2022/11/28/linear_algebra/matrix/
 https://www.entropy2020.cn/2022/11/29/diary/diary_2022_11_29/
 https://www.entropy2020.cn/2022/11/16/linear_algebra/determinant/
-https://www.entropy2020.cn/2022/11/28/linear_algebra/matrix/
 https://www.entropy2020.cn/link/index.html
 https://www.entropy2020.cn/2022/11/13/computer_organization/co-external-storage/
 https://www.entropy2020.cn/2022/11/12/computer_organization/co-overview/
