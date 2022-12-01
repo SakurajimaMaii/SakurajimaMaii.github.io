@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://www.entropy2020.cn/2022/11/28/linear_algebra/matrix/</loc>
+    <loc>https://www.entropy2020.cn/2022/11/30/linear_algebra/vector/</loc>
     
     <lastmod>2022-12-01</lastmod>
     
@@ -11,9 +11,9 @@
   </url>
   
   <url>
-    <loc>https://www.entropy2020.cn/2022/11/30/linear_algebra/vector/</loc>
+    <loc>https://www.entropy2020.cn/2022/11/28/linear_algebra/matrix/</loc>
     
-    <lastmod>2022-11-30</lastmod>
+    <lastmod>2022-12-01</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>

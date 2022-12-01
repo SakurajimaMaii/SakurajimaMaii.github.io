@@ -1,5 +1,5 @@
-https://www.entropy2020.cn/2022/11/28/linear_algebra/matrix/
 https://www.entropy2020.cn/2022/11/30/linear_algebra/vector/
+https://www.entropy2020.cn/2022/11/28/linear_algebra/matrix/
 https://www.entropy2020.cn/2022/11/29/diary/diary_2022_11_29/
 https://www.entropy2020.cn/2022/11/16/linear_algebra/determinant/
 https://www.entropy2020.cn/link/index.html
