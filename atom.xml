@@ -6,7 +6,7 @@
   <link href="https://www.entropy2020.cn/atom.xml" rel="self"/>
   
   <link href="https://www.entropy2020.cn/"/>
-  <updated>2022-12-08T15:51:30.360Z</updated>
+  <updated>2023-02-12T14:27:38.508Z</updated>
   <id>https://www.entropy2020.cn/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>acme.sh</title>
+    <link href="https://www.entropy2020.cn/2023/02/12/server/acme/"/>
+    <id>https://www.entropy2020.cn/2023/02/12/server/acme/</id>
+    <published>2023-02-12T13:54:31.000Z</published>
+    <updated>2023-02-12T14:27:38.508Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言">前言</h2><p>本文主要用来记录自己使用 <code>acme</code> 来为自己的网站配置 <code>HTTPS</code> 证书。</p><h2 id="acme-sh安装">acme.sh安装</h2><p>关于 acme ，你可以点击 <a href="https://github.com/acmesh-official/acme.sh">acme.sh</a> 链接来了解详情。</p><ol><li><p>获取代码<br>因为众所周知的原因，使用服务器访问 github 可能会有网络超时的问题，所以我们选择的是 <a href="http://acme.sh">acme.sh</a> 在 gitee 上的备份仓库，点击 <a href="https://gitee.com/neilpang/acme.sh">acme.sh on gitee</a> 找到对应的仓库。</p><p>在服务器上转到 root 目录下，使用 <code>git clone</code> 命令来获取源代码。</p> <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://gitee.com/neilpang/acme.sh.git</span><br></pre></td></tr></table></figure></li><li><p>安装 <a href="http://acme.sh">acme.sh</a></p><p>运行下面的指令来安装 <a href="http://acme.sh">acme.sh</a> 。</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ./acme.sh</span><br><span class="line">./acme.sh --install -m my@example.com</span><br></pre></td></tr></table></figure><blockquote><p>注意，在安装后我们需要<strong>重启</strong>才能生效。</p></blockquote></li><li><p>华为云参数设置<a href="%5B%E5%8D%8E%E4%B8%BA%E4%BA%91%E7%9A%84%E5%8F%82%E6%95%B0%E6%80%8E%E4%B9%88%E5%86%99%E5%95%8A%5D(https://github.com/acmesh-official/acme.sh/issues/4426?notification_referrer_id=NT_kwDOAs0inLM1MDAyMjU5NjI4OjQ2OTk4MTcy&amp;notifications_query=repo%3Aacmesh-official%2Facme.sh#issuecomment-1423628690)">^1</a></p><p>在这里我使用的是<strong>华为云</strong>服务器，所以需要配置参数。</p> <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export HUAWEICLOUD<span class="emphasis">_Username=&quot;&quot;</span></span><br><span class="line"><span class="emphasis">export HUAWEICLOUD_</span>Password=&quot;&quot;</span><br><span class="line">export HUAWEICLOUD<span class="emphasis">_DomainName=&quot;&quot;</span></span><br></pre></td></tr></table></figure><p>具体参数参考下图</p><p><img src="https://user-images.githubusercontent.com/42064531/206630973-344fe37b-7555-48e1-81fa-0066bcc74e7a.png" alt="华为云参数设置"></p></li></ol><h2 id="证书申请">证书申请</h2><p>运行下列指令来申请证书。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">acme.sh --issue --dns dns_huaweicloud -d b.com -d a.b.com</span><br></pre></td></tr></table></figure><p>注意这里的 <code>b.com</code> 和 <code>a.b.com</code> 是你要配置的域名，这种 <code>-d</code> 多少个就是多个证书。在申请好后会显示证书所在的位置，找到对应的位置复制即可。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;前言&lt;/h2&gt;
+&lt;p&gt;本文主要用来记录自己使用 &lt;code&gt;acme&lt;/code&gt; 来为自己的网站配置 &lt;code&gt;HTTPS&lt;/code&gt; 证书。&lt;/p&gt;
+&lt;h2 id=&quot;acme-sh安装&quot;&gt;acme.sh安装&lt;/h2&gt;
+&lt;p&gt;关于 acme ，你可以</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>线性方程组</title>
